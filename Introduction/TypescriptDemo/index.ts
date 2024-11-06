@@ -74,3 +74,24 @@ class Student extends Person {
     }
 }
 
+const newStudent = new Student("Steve", "Hobs", 28);
+newStudent.getDetails();
+console.log(newStudent.grades);
+
+enum PaymentStatus{
+    Failed = 100,
+    Successful, 
+    Pending,  
+}
+
+console.log("------------------");
+console.log(PaymentStatus.Failed);
+
+function checkPaymentStatus(paymentStatusCode: number):void{
+    if(paymentStatusCode === 100){
+        console.log("Failed payment");
+    }
+}
+
+checkPaymentStatus(PaymentStatus.Failed);
+

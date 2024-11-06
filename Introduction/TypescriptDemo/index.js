@@ -58,3 +58,20 @@ var Student = /** @class */ (function (_super) {
     }
     return Student;
 }(Person));
+var newStudent = new Student("Steve", "Hobs", 28);
+newStudent.getDetails();
+console.log(newStudent.grades);
+var PaymentStatus;
+(function (PaymentStatus) {
+    PaymentStatus[PaymentStatus["Failed"] = 100] = "Failed";
+    PaymentStatus[PaymentStatus["Successful"] = 101] = "Successful";
+    PaymentStatus[PaymentStatus["Pending"] = 102] = "Pending";
+})(PaymentStatus || (PaymentStatus = {}));
+console.log("------------------");
+console.log(PaymentStatus.Failed);
+function checkPaymentStatus(paymentStatusCode) {
+    if (paymentStatusCode === 100) {
+        console.log("Failed payment");
+    }
+}
+checkPaymentStatus(PaymentStatus.Failed);
