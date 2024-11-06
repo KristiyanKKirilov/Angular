@@ -69,7 +69,7 @@ newPerson.getDetails();
 class Student extends Person {
     grades: number[] = [6, 6, 6, 6];
 
-    constructor(fName: string, lName: string, age: number){
+    constructor(fName: string, lName: string, age: number) {
         super(fName, lName, age);
     }
 }
@@ -78,20 +78,22 @@ const newStudent = new Student("Steve", "Hobs", 28);
 newStudent.getDetails();
 console.log(newStudent.grades);
 
-enum PaymentStatus{
+enum PaymentStatus {
     Failed = 100,
-    Successful, 
-    Pending,  
+    Successful,
+    Pending,
 }
 
 console.log("------------------");
 console.log(PaymentStatus.Failed);
 
-function checkPaymentStatus(paymentStatusCode: number):void{
-    if(paymentStatusCode === 100){
+function checkPaymentStatus(paymentStatusCode: number): void {
+    if (paymentStatusCode === PaymentStatus.Failed) {
         console.log("Failed payment");
+    } else if (paymentStatusCode === PaymentStatus.Successful){
+        console.log("Successful payment");
     }
 }
 
-checkPaymentStatus(PaymentStatus.Failed);
+checkPaymentStatus(101);
 

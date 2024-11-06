@@ -70,8 +70,11 @@ var PaymentStatus;
 console.log("------------------");
 console.log(PaymentStatus.Failed);
 function checkPaymentStatus(paymentStatusCode) {
-    if (paymentStatusCode === 100) {
+    if (paymentStatusCode === PaymentStatus.Failed) {
         console.log("Failed payment");
     }
+    else if (paymentStatusCode === PaymentStatus.Successful) {
+        console.log("Successful payment");
+    }
 }
-checkPaymentStatus(PaymentStatus.Failed);
+checkPaymentStatus(101);
