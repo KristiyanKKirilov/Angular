@@ -18,3 +18,19 @@ var user1 = {
 var users = [user, user1];
 console.log(users);
 users.forEach(function (u) { return console.log(u.name); });
+var Person = /** @class */ (function () {
+    function Person(firstName, lastName, age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+    Person.prototype.getAgeMsg = function () {
+        return "This human is ".concat(this.age, " y/o");
+    };
+    Person.prototype.getDetails = function () {
+        console.log("Person details: ".concat(this.firstName, " ").concat(this.lastName));
+    };
+    return Person;
+}());
+var newPerson = new Person("Tom", "Harden", 30);
+newPerson.getDetails();

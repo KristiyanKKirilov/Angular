@@ -37,3 +37,32 @@ const user1: User1 = {
 const users: User[] = [user, user1];
 console.log(users);
 users.forEach(u => console.log(u.name));
+
+interface Human{
+    firstName: string;
+    lastName: string;
+    age: number;
+}
+class Person implements Human{
+    firstName: string;
+    lastName: string;
+    age: number;
+
+    constructor(firstName: string, lastName: string, age: number){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+
+    getAgeMsg():string{
+        return `This human is ${this.age} y/o`
+    }
+
+    getDetails():void{
+        console.log(`Person details: ${this.firstName} ${this.lastName}`);
+    }
+}
+
+const newPerson = new Person("Tom", "Harden", 30);
+newPerson.getDetails();
+
