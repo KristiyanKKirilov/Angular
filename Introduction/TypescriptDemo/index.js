@@ -1,3 +1,18 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 //static type set 
 var helloMsg = "Hello, there";
 var a = 4;
@@ -34,3 +49,12 @@ var Person = /** @class */ (function () {
 }());
 var newPerson = new Person("Tom", "Harden", 30);
 newPerson.getDetails();
+var Student = /** @class */ (function (_super) {
+    __extends(Student, _super);
+    function Student(fName, lName, age) {
+        var _this = _super.call(this, fName, lName, age) || this;
+        _this.grades = [6, 6, 6, 6];
+        return _this;
+    }
+    return Student;
+}(Person));
