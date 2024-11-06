@@ -101,5 +101,5 @@ function getIdentity<T>(id:T):void{
     console.log(`The type of the id is ${typeof id}`);
 }
 
-getIdentity(newStudent);
+getIdentity<object>(newStudent);
 
