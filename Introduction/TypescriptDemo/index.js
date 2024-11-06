@@ -78,3 +78,7 @@ function checkPaymentStatus(paymentStatusCode) {
     }
 }
 checkPaymentStatus(101);
+function getIdentity(id) {
+    console.log("The type of the id is ".concat(typeof id));
+}
+getIdentity(newStudent);
