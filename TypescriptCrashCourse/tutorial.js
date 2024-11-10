@@ -1,14 +1,13 @@
 "use strict";
-//type annotation
-let id = 5;
-let company = "Acme corporation";
-let isPublished = true;
-let ids = [1, 2, 3, 4, 5];
-let x = "probably";
-let xArr = ["probably", 0, true];
-let yArr = [x, id, isPublished];
-const concatenateValues = (a, b) => {
-    return a + b;
+;
+const User = {
+    id: 1,
+    name: "Tom",
 };
-console.log(concatenateValues("Hello", " world"));
-console.log(concatenateValues("5", "10"));
+User.age = 10;
+if (!User.age) {
+    console.log("no age entered.");
+}
+else {
+    console.log(User.age);
+}

@@ -1,8 +1,20 @@
+interface UserInterface {
+    id: number;
+    name: string;
+    age?: number;
+}; 
 
-const User = {
+const User: UserInterface = {
     id: 1,
     name: "Tom",
-    age: 20,
 };
 
 User.age = 10;
+
+
+if(!User.age){
+    console.log("no age entered.");
+}
+else{
+    console.log(User.age);
+}
