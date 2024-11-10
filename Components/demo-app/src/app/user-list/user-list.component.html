@@ -1,1 +1,9 @@
-<p>user-list works!</p>
+<div id="wrapper">
+    <h3>My users list: </h3>
+    <ul>
+        @for (user of users; track $index){
+            <!-- <li>{{user.id}} - {{user.name}} - {{user.age}}</li> -->
+            <app-user-item/>
+        }   
+    </ul>
+</div>
