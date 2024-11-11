@@ -21,4 +21,10 @@ export class AppComponent {
   title = 'demo-app';
 
   numbers = [1, 2, 3, 4, 5];
+
+  isShown = true;
+
+  showForm(){
+      this.isShown = !this.isShown
+  }
 }

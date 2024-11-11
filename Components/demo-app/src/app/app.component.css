@@ -20,3 +20,19 @@
 .dark{
     background-color: rgb(59, 127, 229);
 }
+
+.popup{
+    border: 1px solid black;
+    width: 300px;
+    display: flex;
+     margin: 0 auto;
+    padding: 2em;
+ }
+
+ .wrapper{
+    border: 1px solid black;
+    width: 300px;
+    display: flex;
+     margin: 0 auto;
+    padding: 2em;
+ }

@@ -1,7 +1,7 @@
 <app-navigation-bar />
 <app-user-list />
 
-<div id="numbers-wrapper">
+<!-- <div id="numbers-wrapper">
     @for (n of numbers; track $index) {
     @if (n % 2 === 0) {
         <div class="num light">{{n}}</div>
@@ -9,5 +9,15 @@
         <div class="num dark">{{n}}</div>
     }
     }
+</div> -->
+<div class="wrapper">
+    <button (click)="showForm()">Show form</button>
 </div>
+@if(isShown){
+    <div class="popup">
+        <input type="text" placeholder="email">
+        <button>Click</button>
+    </div>      
+}
+
 <app-footer />
