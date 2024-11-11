@@ -24,7 +24,8 @@ export class AppComponent {
 
   isShown = true;
 
-  showForm(){
+  showForm(event: Event){
+    console.log(event); 
       this.isShown = !this.isShown
   }
 }
