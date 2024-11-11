@@ -9,9 +9,9 @@ import { UserItemComponent } from './user-list/user-item/user-item.component';
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet, 
-    NavigationBarComponent, 
-    FooterComponent, 
+    RouterOutlet,
+    NavigationBarComponent,
+    FooterComponent,
     UserListComponent,
   ],
   templateUrl: './app.component.html',
@@ -19,4 +19,6 @@ import { UserItemComponent } from './user-list/user-item/user-item.component';
 })
 export class AppComponent {
   title = 'demo-app';
+
+  numbers = [1, 2, 3, 4, 5];
 }

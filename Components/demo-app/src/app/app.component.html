@@ -1,3 +1,13 @@
-<app-navigation-bar/>
-<app-user-list/>
-<app-footer/>
+<app-navigation-bar />
+<app-user-list />
+
+<div id="numbers-wrapper">
+    @for (n of numbers; track $index) {
+    @if (n % 2 === 0) {
+        <div class="num light">{{n}}</div>
+    }@else {
+        <div class="num dark">{{n}}</div>
+    }
+    }
+</div>
+<app-footer />

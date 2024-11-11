@@ -1,0 +1,22 @@
+#numbers-wrapper{
+    background-color: darkblue;
+    padding: 1em;
+    margin: 0 auto;
+    width: 300px;
+    text-align: center ;
+}
+
+.num{
+    background-color: skyblue;
+    padding: 0.5em;
+    margin: 0.5em;  
+    border-radius: 20px; 
+}
+
+.light{
+    background-color: rgb(96, 129, 238);
+}
+
+.dark{
+    background-color: rgb(59, 127, 229);
+}
