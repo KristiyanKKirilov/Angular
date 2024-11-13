@@ -22,10 +22,13 @@ export class AppComponent {
 
   numbers = [1, 2, 3, 4, 5];
 
+  randomMsg = 'random-red';
   isShown = true;
+  beaverImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/American_Beaver.jpg/220px-American_Beaver.jpg";
 
   showForm(event: Event){
     console.log(event); 
+    this.randomMsg = this.randomMsg === 'random-green'? 'random-red' : 'random-green ';
       this.isShown = !this.isShown
   }
 }

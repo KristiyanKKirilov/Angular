@@ -1,4 +1,5 @@
 <app-navigation-bar />
+<div [class]="randomMsg">This is random message!</div>
 <app-user-list />
 
 <!-- <div id="numbers-wrapper">
@@ -13,11 +14,16 @@
 <div class="wrapper">
     <button (click)="showForm($event)">Show form</button>
 </div>
+
+
+<app-footer />
+
 @if(isShown){
     <div class="popup">
+        <div>
+            <img [attr.src]="beaverImage">
+        </div>
         <input type="text" placeholder="email">
         <button>Click</button>
     </div>      
 }
-
-<app-footer />
