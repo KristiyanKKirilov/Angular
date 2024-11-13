@@ -1,0 +1,54 @@
+#numbers-wrapper{
+    background-color: darkblue;
+    padding: 1em;
+    margin: 0 auto;
+    width: 300px;
+    text-align: center ;
+}
+
+.num{
+    background-color: skyblue;
+    padding: 0.5em;
+    margin: 0.5em;  
+    border-radius: 20px; 
+}
+
+.light{
+    background-color: rgb(96, 129, 238);
+}
+
+.dark{
+    background-color: rgb(59, 127, 229);
+}
+
+.popup{
+    border: 1px solid black;
+    width: 300px;
+    margin: 0 auto;
+    padding: 2em;
+    position: absolute;
+    top: 100px;
+    left: calc(50% - 150px);
+    background-color: skyblue;
+  }
+
+ .wrapper{
+    border: 1px solid black;
+    width: 300px;
+    display: flex;
+     margin: 0 auto;
+    padding: 2em;
+ }
+
+ img{
+    aspect-ratio: 1/1;
+    height: 100px;
+ }
+
+ .random-red{
+    background-color: red;
+ }
+
+ .random-green{
+    background-color: green;
+ }
