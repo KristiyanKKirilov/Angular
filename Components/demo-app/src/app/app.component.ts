@@ -4,6 +4,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { FooterComponent } from './footer/footer.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserItemComponent } from './user-list/user-item/user-item.component';
+import { beaverImgSrc } from './constants';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,7 @@ export class AppComponent {
 
   randomMsg = 'random-red';
   isShown = true;
-  beaverImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/American_Beaver.jpg/220px-American_Beaver.jpg";
+  beaverImage = beaverImgSrc;
 
   showForm(event: Event){
     console.log(event); 
