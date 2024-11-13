@@ -1,15 +1,5 @@
 <div [class]="randomMsg">This is random message!</div>
 
-<!-- <div id="numbers-wrapper">
-    @for (n of numbers; track $index) {
-    @if (n % 2 === 0) {
-        <div class="num light">{{n}}</div>
-    }@else {
-        <div class="num dark">{{n}}</div>
-    }
-    }
-</div> -->
-
 <div class="wrapper">
     <button (click)="showForm($event)">Show form</button>
 </div>
@@ -25,3 +15,14 @@
         <button>Click</button>
     </div>      
 }
+
+<div id="numbers-wrapper">
+    @for (n of numbers; track $index) {
+    <!-- @if (n % 2 === 0) {
+        <div class="num light">{{n}}</div>
+    }@else { 
+        <div class="num dark">{{n}}</div>
+    } -->
+        <div [class.light]="n % 2 === 0" [class.dark]="n % 2 !== 0">{{n}}</div>
+    }
+</div>
