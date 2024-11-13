@@ -7,11 +7,7 @@ import { UserListComponent } from '../user-list/user-list.component';
 @Component({
   selector: 'app-test-demo',
   standalone: true,
-  imports: [ 
-    NavigationBarComponent,
-    FooterComponent,
-    UserListComponent,
-  ],
+  imports: [],
   templateUrl: './test-demo.component.html',
   styleUrl: './test-demo.component.css'
 })
