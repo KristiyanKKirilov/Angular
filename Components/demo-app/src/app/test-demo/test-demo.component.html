@@ -1,25 +1,15 @@
 <div [class]="randomMsg">This is random message!</div>
 
 <div class="wrapper">
-    <button (click)="showForm()"
-    [style.border]="isShown ? '2px solid green' : '2px solid red'">Show form</button>
+    <button (click)="showForm()" [style.border]="isShown ? '2px solid green' : '2px solid red'">Show form</button>
 </div>
 
-
-
-@if(isShown){
-   <app-popup />  
-}
+<app-popup [isShown]="isShown" (onChildEvent)="onOutputActivate($event) "/>
 
 <div id="numbers-wrapper">
     @for (n of numbers; track $index) {
-    <!-- @if (n % 2 === 0) {
-        <div class="num light">{{n}}</div>
-    }@else { 
-        <div class="num dark">{{n}}</div>
-    } -->
-        <div [class.light]="n % 2 === 0" 
-        [class.dark]="n % 2 !== 0"
-        [class.border]="isShown">{{n}}</div>
+    <div [class.light]="n % 2 === 0" 
+         [class.dark]="n % 2 !== 0" 
+         [class.border]="isShown">{{n}}</div>
     }
 </div>

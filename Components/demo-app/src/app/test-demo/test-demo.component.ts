@@ -20,5 +20,13 @@ export class TestDemoComponent {
     this.isShown = !this.isShown;
   }
 
+  handleClick(input: HTMLInputElement){
+    this.numbers.push(Number(input.value));
+    this.isShown = false;
+  }
+
+  onOutputActivate(e: boolean): void{
+    console.log('output activated', e);
+  }
  
 }

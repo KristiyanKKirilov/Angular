@@ -1,13 +1,15 @@
+@if(isShown){
 <div class="popup">
     <h3>Add number to numbers collection</h3>
-<div>
-    @if(beaverImage.length !== 0){
+    <div>
+        @if(beaverImage.length !== 0){
         <img [attr.src]="beaverImage">
-    }  @else {
+        } @else {
         <p>Loading image...</p>
-    }
-</div>
-    
+        }
+    </div>
     <input type="text" placeholder="email" #emailInput type="number">
-    <!-- <button (click)="handleClick(emailInput)">Add number</button> -->
-</div>      
+
+    <button (click)="handleClick()">Click</button>
+</div>
+}

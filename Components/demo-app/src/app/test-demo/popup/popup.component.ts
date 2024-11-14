@@ -1,5 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, Output, OnDestroy, OnInit, EventEmitter } from '@angular/core';
 import { beaverImgSrc } from '../../constants';
+
 
 @Component({
   selector: 'app-popup',
@@ -9,7 +10,11 @@ import { beaverImgSrc } from '../../constants';
   styleUrl: './popup.component.css'
 })
 export class PopupComponent implements OnInit, OnDestroy {
+  @Input('isShown') isShown = false;  
+  @Output() onChildEvent = new EventEmitter<boolean>();
+
   beaverImage = "";
+  toggle = false;
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -22,4 +27,10 @@ export class PopupComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     console.log('Closed');
   }
+
+  handleClick(){
+    console.log('click');
+     this.onChildEvent.emit(!this.toggle);   
+  }
+ 
 }
