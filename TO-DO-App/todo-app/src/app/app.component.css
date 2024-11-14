@@ -1,0 +1,10 @@
+.site{
+    padding: 2em;
+}
+.site-content{
+    padding: 4em;
+    border: 2px solid #000;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
