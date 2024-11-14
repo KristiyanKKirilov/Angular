@@ -15,12 +15,11 @@ export class TestDemoComponent {
   numbers = [1, 2, 3, 4, 5];
 
   randomMsg = 'random-red';
-  isShown = true;
+  isShown = false;
   beaverImage = beaverImgSrc;
 
-  showForm(event: Event) {
-    console.log(event);
-    this.randomMsg = this.randomMsg === 'random-green' ? 'random-red' : 'random-green ';
-    this.isShown = !this.isShown
+  showForm() {
+    this.randomMsg = this.randomMsg === 'random-green' ? 'random-red' : 'random-green';
+    this.isShown = !this.isShown;
   }
 }

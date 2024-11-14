@@ -54,3 +54,9 @@
  .random-green{
     background-color: green;
  }
+
+ .border{
+    border: 2px solid #000;
+    border-radius: 20px;
+    margin: 2em 0;
+ }
