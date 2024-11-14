@@ -1,8 +1,5 @@
-import { Component, ElementRef } from '@angular/core';
-import { beaverImgSrc } from '../constants';
-import { NavigationBarComponent } from '../navigation-bar/navigation-bar.component';
-import { FooterComponent } from '../footer/footer.component';
-import { UserListComponent } from '../user-list/user-list.component';
+import { Component } from '@angular/core';
+import { beaverImgSrc, randomGreenMsg, randomRedMsg } from '../constants';
 
 @Component({
   selector: 'app-test-demo',
@@ -14,18 +11,18 @@ import { UserListComponent } from '../user-list/user-list.component';
 export class TestDemoComponent {
   numbers = [1, 2, 3, 4, 5];
 
-  randomMsg = 'random-red';
+  randomMsg = randomRedMsg;
   isShown = false;
   beaverImage = beaverImgSrc;
 
   showForm() {
-    this.randomMsg = this.randomMsg === 'random-green' ? 'random-red' : 'random-green';
+    this.randomMsg = this.randomMsg === randomGreenMsg ? randomRedMsg : randomGreenMsg;
     this.isShown = !this.isShown;
   }
 
   handleClick(emailInput: HTMLInputElement){
     this.numbers.push(Number(emailInput.value));
     this.isShown = false;
-    this.randomMsg = this.randomMsg === 'random-green' ? 'random-red' : 'random-green';
+    this.randomMsg = this.randomMsg === randomGreenMsg ? randomRedMsg : randomGreenMsg;
   }
 }
