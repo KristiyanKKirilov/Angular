@@ -25,5 +25,6 @@ export class TestDemoComponent {
 
   handleClick(emailInput: HTMLInputElement){
     this.numbers.push(Number(emailInput.value));
+    this.isShown = false;
   }
 }
