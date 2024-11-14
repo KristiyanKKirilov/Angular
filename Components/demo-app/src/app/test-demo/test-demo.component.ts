@@ -26,5 +26,6 @@ export class TestDemoComponent {
   handleClick(emailInput: HTMLInputElement){
     this.numbers.push(Number(emailInput.value));
     this.isShown = false;
+    this.randomMsg = this.randomMsg === 'random-green' ? 'random-red' : 'random-green';
   }
 }
