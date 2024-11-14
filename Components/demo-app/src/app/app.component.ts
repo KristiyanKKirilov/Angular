@@ -4,6 +4,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { FooterComponent } from './footer/footer.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { TestDemoComponent } from './test-demo/test-demo.component';
+import { PopupComponent } from "./test-demo/popup/popup.component";
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,8 @@ import { TestDemoComponent } from './test-demo/test-demo.component';
     NavigationBarComponent,
     FooterComponent,
     UserListComponent,
-    TestDemoComponent,
-  ],
+    TestDemoComponent 
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
