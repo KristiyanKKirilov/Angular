@@ -12,14 +12,14 @@ export class PopupComponent implements OnInit, OnDestroy {
   beaverImage = "";
 
   ngOnInit(): void {
-    setInterval(() => {
+    setTimeout(() => {
       this.beaverImage = beaverImgSrc;
       console.log('Popup has been created');
-
-    }, 3000)
+      console.log('Opened');
+    }, 2000)
   } 
 
   ngOnDestroy(): void {
-    
+    console.log('Closed');
   }
 }
