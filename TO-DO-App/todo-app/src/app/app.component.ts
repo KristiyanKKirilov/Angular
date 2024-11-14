@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import { ContentComponent } from './content/content.component';
+import { CreationComponent } from './creation/creation.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ContentComponent],
+  imports: [
+    ContentComponent,
+    CreationComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

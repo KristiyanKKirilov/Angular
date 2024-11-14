@@ -8,12 +8,12 @@ import { Component, Input } from '@angular/core';
   styleUrl: './content.component.css'
 })
 export class ContentComponent {
-  @Input() tasks: string[] | null = null;
+  @Input() tasksProp: string[] | null = null;
 
   printTasks(){
-    if(this.tasks){
-      for (let i = 0; i < this.tasks.length; i++) {
-          console.log(this.tasks[i]);        
+    if(this.tasksProp){
+      for (let i = 0; i < this.tasksProp.length; i++) {
+          console.log(this.tasksProp[i]);        
       }
     }
     else{

@@ -8,5 +8,4 @@ import { Component, Input } from '@angular/core';
   styleUrl: './creation.component.css'
 })
 export class CreationComponent {
-  @Input() item = '';
 }
