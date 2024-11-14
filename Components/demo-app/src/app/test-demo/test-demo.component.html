@@ -9,11 +9,12 @@
 
 @if(isShown){
     <div class="popup">
+        <h3>Add number to numbers collection</h3>
         <div>
             <img [attr.src]="beaverImage">
         </div>
-        <input type="text" placeholder="email">
-        <button>Click</button>
+        <input type="text" placeholder="email" #emailInput type="number">
+        <button (click)="handleClick(emailInput)">Add number</button>
     </div>      
 }
 

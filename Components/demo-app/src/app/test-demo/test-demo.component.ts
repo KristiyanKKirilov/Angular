@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { beaverImgSrc } from '../constants';
 import { NavigationBarComponent } from '../navigation-bar/navigation-bar.component';
 import { FooterComponent } from '../footer/footer.component';
@@ -21,5 +21,9 @@ export class TestDemoComponent {
   showForm() {
     this.randomMsg = this.randomMsg === 'random-green' ? 'random-red' : 'random-green';
     this.isShown = !this.isShown;
+  }
+
+  handleClick(emailInput: HTMLInputElement){
+    this.numbers.push(Number(emailInput.value));
   }
 }
