@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
+import { DeletionComponent } from '../deletion/deletion.component';
 
 @Component({
   selector: 'app-content',
   standalone: true,
-  imports: [],
+  imports: [DeletionComponent],
   templateUrl: './content.component.html',
   styleUrl: './content.component.css'
 })
@@ -20,5 +21,5 @@ export class ContentComponent {
       console.log(null);
     }
     
-  }
+  }  
 }
