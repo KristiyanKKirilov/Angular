@@ -15,14 +15,17 @@ export class EditComponent {
     currentTask = "";
 
     triggerEdit(index: number):void{
-        this.isEditing = true;
+        this.isEditing = !this.isEditing;
+        this.currentTask = "";
        if(this.tasksProp){
         this.currentTask = this.tasksProp[index];
+        console.log(this.tasksProp[index]);
+
         }
     }
 
     editTask(index: number, editedTask: string):void{
-      this.isEditing = false;
+      this.isEditing = !this.isEditing;
         if(this.tasksProp){
           this.tasksProp[index] = editedTask;
         }
