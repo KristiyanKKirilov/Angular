@@ -11,9 +11,9 @@ export class DeletionComponent {
   @Input() tasksProp: string[] | null = null;
   @Input() indexProp: number | null = null;
 
-  deleteTask(i: number){
+  deleteTask(index: number):void{
     if(this.tasksProp){
-        this.tasksProp?.splice(i, 1);
+        this.tasksProp?.splice(index, 1);
     }
   }
 }

@@ -1,0 +1,13 @@
+.edit-image{
+    max-width: 0.8em;
+    aspect-ratio: 1/1;
+    margin-left: 0.5em;
+    cursor: pointer;
+}
+
+.content-edit{
+    padding: 1em;
+    border: 2px solid #000;
+    position: absolute;
+    top: 15em;
+}

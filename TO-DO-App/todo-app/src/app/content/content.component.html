@@ -1,8 +1,10 @@
 <div class="content-main">
     @if(tasksProp){
         @for (task of tasksProp; track $index) {
-            <p>{{$index + 1}}.{{task}}
-                   <app-deletion [tasksProp]="tasksProp" [indexProp]="$index"/> 
+            <p>
+                <app-edit [tasksProp]="tasksProp" [indexProp]="$index"/>
+                {{$index + 1}}.{{task}}
+                <app-deletion [tasksProp]="tasksProp" [indexProp]="$index"/> 
             </p>
         }
     }   
