@@ -17,9 +17,10 @@
             [indexProp]="currentIndex" 
             [tasksProp]="tasksProp" 
             [currentTaskProp]="tasksProp[currentIndex]"
-            [isEditingProp]="isEditing"/>
-         }
-    
+            [isEditingProp]="isEditing"
+            (editingStateProp)="updateEditingState($event)"/>
+
+         }    
     }   
 
     

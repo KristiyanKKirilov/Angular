@@ -17,8 +17,9 @@ export class EditComponent {
 
     editTask(index: number, editedTask: string):void{
         if(this.tasksProp && this.isEditingProp){
+          console.log(this.tasksProp[index]);
           this.tasksProp[index] = editedTask;
-          this.isEditingProp = !this.isEditingProp;
+          this.isEditingProp = false;
           this.updateEditingStateProp(this.isEditingProp);
         }
 
