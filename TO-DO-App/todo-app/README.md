@@ -26,6 +26,14 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
-##UI Design
+## UI Design
 ![to-do-01](https://github.com/user-attachments/assets/45bda8b9-5313-4521-9345-28b7014664d2)
+## Task Creation
+![to-do-02](https://github.com/user-attachments/assets/f3cd8a91-3e50-49ce-9920-b9d5b8173474)
+## Task Edit
+![to-do-03](https://github.com/user-attachments/assets/dbe8395d-9227-4537-8021-b57528eefca7)
+## Task Deletion
+![to-do-04](https://github.com/user-attachments/assets/f18cce83-345b-432b-9aa0-e88bcbb1cdd9)
+## Tasks after deletion
+![to-do-05](https://github.com/user-attachments/assets/6a34a80b-b6ef-4035-8a32-084b087b5b38)
 
