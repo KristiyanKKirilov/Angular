@@ -20,3 +20,8 @@ input[type="text"]{
     padding: 0.3em;
     max-width: 3em;
 }
+
+#editBtn:hover{
+    background-color: rgb(137, 187, 243);
+    cursor: pointer; 
+}
