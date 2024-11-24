@@ -5,15 +5,22 @@
                 <app-trigger-edit 
                 [indexProp]="$index"
                 [isEditingProp]="isEditing" 
-                (editingStateProp)="updateEditingState($event)" />
-                {{currentTask}}
+                (editingStateProp)="updateEditingState($event)"
+                (currentIndexProp)="updateCurrentIndex($event)" />
                 {{$index + 1}}.{{task}}
                 <app-deletion [tasksProp]="tasksProp" [indexProp]="$index"/> 
-            </p>
+            </p>            
         }
+
+        @if(isEditing){
+            <app-edit 
+            [indexProp]="currentIndex" 
+            [tasksProp]="tasksProp" 
+            [currentTaskProp]="tasksProp[currentIndex]"
+            [isEditingProp]="isEditing"/>
+         }
+    
     }   
 
-    @if(isEditing){
-       <app-edit/>
-    }
+    
 </div>

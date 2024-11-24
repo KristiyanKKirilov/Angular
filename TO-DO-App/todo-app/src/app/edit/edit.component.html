@@ -1,8 +1,6 @@
-
-
-@if(isEditing && indexProp !== null){
+@if(indexProp !== null && tasksProp && currentTaskProp){
     <div class="content-edit">
-        <input type="text" value="{{currentTask}}" #editedTask>
+        <input type="text" value="{{currentTaskProp}}" #editedTask/>
         <button id="editBtn"(click)="editTask(indexProp, editedTask.value)">Edit</button>
     </div>
 }

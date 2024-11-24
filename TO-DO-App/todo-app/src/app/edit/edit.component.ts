@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-edit',
@@ -9,16 +9,22 @@ import { Component, Input } from '@angular/core';
 })
 export class EditComponent {
     @Input() indexProp: number | null = null;
-    @Input() tasksProp: string[] | null = null;
-    
-    isEditing = false;
-    currentTask = "";   
+    @Input() tasksProp: string[] | null = null;      
+    @Input() currentTaskProp: string | null = null;
+    @Input() isEditingProp: boolean | null = null;
+    @Output() editingStateProp = new EventEmitter<boolean>();
+
 
     editTask(index: number, editedTask: string):void{
-      this.isEditing = !this.isEditing;
-        if(this.tasksProp){
+        if(this.tasksProp && this.isEditingProp){
           this.tasksProp[index] = editedTask;
+          this.isEditingProp = !this.isEditingProp;
+          this.updateEditingStateProp(this.isEditingProp);
         }
 
+    }
+
+    updateEditingStateProp(isEditing: boolean):void{
+      this.editingStateProp.emit(isEditing);
     }
 }

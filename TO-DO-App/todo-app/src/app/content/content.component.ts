@@ -17,7 +17,7 @@ import { TriggerEditComponent } from '../trigger-edit/trigger-edit.component';
 export class ContentComponent {
   @Input() tasksProp: string[] | null = null;
   isEditing = false;
-  currentTask = "";
+  currentIndex = 0;
 
   printTasks(){
     if(this.tasksProp){
@@ -33,5 +33,9 @@ export class ContentComponent {
   
   updateEditingState(isEditing: boolean): void{
     this.isEditing = isEditing;    
+  }
+
+  updateCurrentIndex(index: number):void{
+    this.currentIndex = index;
   }
 }
