@@ -13,7 +13,7 @@ import { CreationComponent } from './creation/creation.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'todo-app';
+  title = 'TO DO';
   tasks: string[] = ['shopping', 'cook dinner'];
   currentItem = 'p';
 }

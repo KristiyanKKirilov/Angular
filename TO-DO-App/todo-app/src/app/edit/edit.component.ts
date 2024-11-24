@@ -12,17 +12,7 @@ export class EditComponent {
     @Input() tasksProp: string[] | null = null;
     
     isEditing = false;
-    currentTask = "";
-
-    triggerEdit(index: number):void{
-        this.isEditing = !this.isEditing;
-        this.currentTask = "";
-       if(this.tasksProp){
-        this.currentTask = this.tasksProp[index];
-        console.log(this.tasksProp[index]);
-
-        }
-    }
+    currentTask = "";   
 
     editTask(index: number, editedTask: string):void{
       this.isEditing = !this.isEditing;

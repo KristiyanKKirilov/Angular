@@ -5,3 +5,19 @@
     align-items: center;
     justify-content: center;
 }
+
+input[type=text]{
+    border-radius: 20px;
+    padding: 0.5em;
+}
+
+button{
+    padding: 0.5em;
+    border-radius: 20px;
+    box-shadow: 2px 2px #000;
+}
+
+button:hover{
+    background-color: rgb(137, 187, 243);
+    cursor: pointer;
+}

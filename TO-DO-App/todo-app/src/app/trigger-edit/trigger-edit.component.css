@@ -1,0 +1,6 @@
+.edit-image{
+    max-width: 0.8em;
+    aspect-ratio: 1/1;
+    margin-left: 0.5em;
+    cursor: pointer;
+}

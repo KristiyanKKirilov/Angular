@@ -2,10 +2,18 @@
     @if(tasksProp){
         @for (task of tasksProp; track $index) {
             <p>
-                <app-edit [tasksProp]="tasksProp" [indexProp]="$index"/>
+                <app-trigger-edit 
+                [indexProp]="$index"
+                [isEditingProp]="isEditing" 
+                (editingStateProp)="updateEditingState($event)" />
+                {{currentTask}}
                 {{$index + 1}}.{{task}}
                 <app-deletion [tasksProp]="tasksProp" [indexProp]="$index"/> 
             </p>
         }
     }   
+
+    @if(isEditing){
+       <app-edit/>
+    }
 </div>
