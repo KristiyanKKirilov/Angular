@@ -13,14 +13,26 @@ import { SimpleUser } from './types';
 export class AppComponent {
   title = 'demo-app';
 
-  appUsers: SimpleUser [] = [
-    {name: 'Steve', age: 20},
-    {name: 'Tom', age: 21},
-    {name: 'Harden', age: 22},
+  appUsers: SimpleUser[] = [
+    { name: 'Steve', age: 20 },
+    { name: 'Tom', age: 21 },
+    { name: 'Harden', age: 22 },
   ];
 
   handleClick(): void {
     this.title = "New title";
+  }
+
+  addUser(name: HTMLInputElement, age: HTMLInputElement): void {
+    const user: SimpleUser = {
+      name: name.value,
+      age: Number(age.value),
+    };
+    this.appUsers.push(user);
+
+    name.value = "";
+    age.value = ""; 
+
   }
 }
 
