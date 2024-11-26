@@ -28,11 +28,15 @@ export class AppComponent {
       name: name.value,
       age: Number(age.value),
     };
-    this.appUsers.push(user);
 
-    name.value = "";
-    age.value = ""; 
+    this.appUsers.push(user); 
+    // this.appUsers = [...this.appUsers, user];
+    
+    name.value = '';
+    age.value = ''; 
+ 
 
+    console.log(user);  
   }
 }
 
