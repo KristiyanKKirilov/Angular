@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, SimpleChanges } from '@angular/core';
 import { UserItemComponent } from './user-item/user-item.component';
 import { SimpleUser } from '../types';
 
@@ -14,6 +14,10 @@ export class UserListComponent {
   @Input('usersProp') usersProp: SimpleUser[] = [];
 
   constructor(private cd: ChangeDetectorRef) {}
+
+  ngOnChanges(changes: SimpleChanges):void {
+    console.log('changes', changes)
+  }
 
   refreshList() {
     this.cd.detectChanges();
