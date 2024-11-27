@@ -1,6 +1,6 @@
 // import { Observable } from "rxjs";
 
-import { interval, Observable } from "rxjs"
+import { interval, map, Observable } from "rxjs"
 
 // //Promises - not lazy (invoking without getting to the result )
 // const p = new Promise((resolve, reject) => {
@@ -43,7 +43,17 @@ import { interval, Observable } from "rxjs"
 //   return o;
 // }
 
-interval(2000)
-  .subscribe((data) => {
-    console.log(data);
-  }); 
+//observable syntax
+const stream$ = interval(2000)
+  .pipe(map((x) => x * 2))
+  .pipe(map((x) => x + 1));
+
+
+  stream$
+  .subscribe({
+    next: (data) => console.log(data),
+    error: (err) => console.error(err),
+    complete: () => console.log('Completed'),
+  });
+
+
