@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { UserListComponent } from './user-list/user-list.component';
+import { UserService } from './user-list/user.service';
 import { SimpleUser } from './types';
 
 @Component({
@@ -11,33 +12,22 @@ import { SimpleUser } from './types';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'demo-app';
+  title = 'demo-app'; 
+  users: SimpleUser[] = [];
 
-  appUsers: SimpleUser[] = [
-    { name: 'Steve', age: 20 },
-    { name: 'Tom', age: 21 },
-    { name: 'Harden', age: 22 },
-  ];
+  constructor(private userService: UserService){
+    this.users = this.userService.appUsers;
+  }
 
   handleClick(): void {
     this.title = "New title";
   }
 
-  addUser(name: HTMLInputElement, age: HTMLInputElement): void {
-    const user: SimpleUser = {
-      name: name.value,
-      age: Number(age.value),
-    };
-
-    this.appUsers.push(user); 
-    // this.appUsers = [...this.appUsers, user];
-    
-    name.value = '';
-    age.value = ''; 
- 
-
-    console.log(user);  
+  addSimpleUser(name: HTMLInputElement, age: HTMLInputElement) :void{
+    this.userService.addUser(name, age);
   }
+
+  
 }
 
 
