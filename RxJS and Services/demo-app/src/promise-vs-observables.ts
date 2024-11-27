@@ -49,11 +49,5 @@ const stream$ = interval(2000)
   .pipe(map((x) => x + 1));
 
 
-  stream$
-  .subscribe({
-    next: (data) => console.log(data),
-    error: (err) => console.error(err),
-    complete: () => console.log('Completed'),
-  });
-
+  //  
 

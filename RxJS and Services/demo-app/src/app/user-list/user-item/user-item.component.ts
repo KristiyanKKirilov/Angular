@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SimpleUser } from '../../types';
+import { ComplexUser, SimpleUser } from '../../types';
 import { UserService } from '../user.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { UserService } from '../user.service';
   styleUrl: './user-item.component.css'
 })
 export class UserItemComponent implements OnInit{
-  @Input('user') user: SimpleUser | null = null;
+  @Input('user') user: ComplexUser | null = null;
 
   constructor(private us: UserService){
   }

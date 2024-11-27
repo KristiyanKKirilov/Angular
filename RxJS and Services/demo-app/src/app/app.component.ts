@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserService } from './user-list/user.service';
-import { SimpleUser } from './types';
+import { ComplexUser } from './types';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +12,28 @@ import { SimpleUser } from './types';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'demo-app'; 
-  users: SimpleUser[] = [];
+  users: ComplexUser[] = [];
+  isLoading = true;
 
   constructor(private userService: UserService){
     this.users = this.userService.appUsers;
+  }
+
+  ngOnInit(): void {
+    // this.userService.getUsers()
+    //   .then((users) => {
+    //     this.users = users;
+    //   });
+    this.userService.getUsers().subscribe(users => {
+      setTimeout(() => {
+        this.users = users;
+        this.isLoading = false;
+      }, 3000)
+      
+    });
+
   }
 
   handleClick(): void {
