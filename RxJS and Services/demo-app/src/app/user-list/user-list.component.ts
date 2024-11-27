@@ -17,7 +17,7 @@ export class UserListComponent implements OnChanges {
   constructor(private cd: ChangeDetectorRef, private us: UserService) {}
 
   ngOnChanges(changes: SimpleChanges):void {
-    console.log('changes', changes)
+    // console.log('changes', changes)
   }
 
   refreshList() {

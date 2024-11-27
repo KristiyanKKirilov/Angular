@@ -16,6 +16,6 @@ export class UserItemComponent implements OnInit{
   }
 
   ngOnInit(): void{
-    console.log(this.user?.name + '-' + JSON.stringify(this.us.appUsers, null, 4)); 
+    // console.log(this.user?.name + '-' + JSON.stringify(this.us.appUsers, null, 4)); 
   }
 }

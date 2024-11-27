@@ -1,5 +1,5 @@
 //standart console.log
-console.log(123);
+// console.log(123);
 
 //monkey patched console.log
  const originalConsoleLog = console.log;
@@ -12,4 +12,4 @@ console.log(123);
   //notifyAngularToDetectChanges()
  }
 
- console.log(3456);
+//  console.log(3456);

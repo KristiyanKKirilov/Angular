@@ -82,4 +82,4 @@ class User{
 }
 
 const user = new User(7000, 'Benz', 'C220');
-console.log(user.wallet.balance);
+// console.log(user.wallet.balance);
