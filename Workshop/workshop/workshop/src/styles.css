@@ -17,12 +17,36 @@ body, form, input, textarea, option, select, button {
     font: inherit;
 }
 
-ul, ol {
-    padding-bottom: 1.5em;
+body {
+    max-width: 1366px;
+    margin: auto;
+    position: relative;
+    min-height: 100vh;
+    font-optical-sizing: auto;
+    background-color: #e4e3e3;
+}
+
+h2 {
+    text-align: center;
+    border-bottom: 1px dashed #999;
+}
+
+span {
+    font-weight: bold;
+}
+
+button {
+    background-color: #4ebced;
+    color: white;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 ul, ol {
     padding-left: 2.5em;
+    padding-bottom: 1.5em;
 }
 
 blockquote, h1, h2, h3, h4, h5, h6 {
