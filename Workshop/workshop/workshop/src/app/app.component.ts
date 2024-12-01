@@ -16,11 +16,4 @@ import { MainComponent } from './main/main.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit{
-  ngOnInit(): void {
-    // this.http.get('https://post-blog-ng-default-rtdb.firebaseio.com/posts/.json')
-    // .subscribe((x) => {
-    //   console.log(x)
-    // });
-  }
-}
+export class AppComponent{}
