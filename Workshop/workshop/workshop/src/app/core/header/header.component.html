@@ -5,14 +5,16 @@
             <p class="logo"> SoftUni Forum</p>
         </div>
         <div class="mini-navbar">
-            <ul>
-                <li>
-                    <a href="#">Login</a>
-                </li>
-                <li>
-                    <a href="#">Register</a>
-                </li>
+            @if(!isLoggedIn){
+            <ul>              
+                    <li>
+                        <a href="#">Login</a>
+                    </li>
+                    <li>
+                        <a href="#">Register</a>
+                    </li>        
             </ul>
+        }
         </div>
     </div>
     <nav>
