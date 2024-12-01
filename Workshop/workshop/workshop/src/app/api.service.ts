@@ -13,6 +13,7 @@ export class ApiService {
 
   getPosts(): Observable<Post[]>{
     const {apiUrl} = environment;
-    return this.http.get<Post[]>(`${apiUrl}/posts/.json`)
+    console.log(apiUrl);
+    return this.http.get<Post[]>(`${apiUrl}/posts`)
   }
 }
