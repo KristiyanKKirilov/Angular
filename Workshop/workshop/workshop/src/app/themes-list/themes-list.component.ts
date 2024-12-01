@@ -15,7 +15,9 @@ export class ThemesListComponent implements OnInit{
   ngOnInit(): void {
     this.apiService
     .getThemes()
-    .subscribe(t => console.log(t));
+    .subscribe(themes => {
+      console.log(themes)
+    });
   }
 
 }
