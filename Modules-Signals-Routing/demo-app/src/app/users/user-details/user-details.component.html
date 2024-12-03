@@ -1,5 +1,9 @@
 <div class="container">
     <h2>User Details: </h2>
-    <h3>Name: {{user?.name}}</h3>
+    @if(!isLoading){
+        <h3>Name: {{user?.name}}</h3>
+    }@else {
+        <span class="loader"></span>
+    }    
 </div>
 

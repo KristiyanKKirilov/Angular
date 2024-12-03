@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserDetailsComponent implements OnInit {
   user: User | null = null;
+  isLoading = true;
 
   constructor(
     private userService: UsersService,
@@ -25,6 +26,7 @@ export class UserDetailsComponent implements OnInit {
       .getSingleUser(userId)
       .subscribe((user) => {
         this.user = user;
+        this.isLoading = false;
       })
   }
 
