@@ -7,10 +7,8 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 export const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full'},
     {path: 'home', component: HomeComponent},
-    {path: 'users', component: UsersComponent, children: [
-        {path: 'details/:id', component: UserDetailsComponent},
-    ]},
-    {path: '**', component: ErrorPageComponent}
-    // {path: 'users/details/:id', component: UserDetailsComponent}
+    {path: 'users', component: UsersComponent},
+    {path: 'users/details/:id', component: UserDetailsComponent}, 
+    {path: '**', component: ErrorPageComponent},
 ];
  
