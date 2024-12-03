@@ -1,1 +1,9 @@
-<p>users works!</p>
+<h3>Users List: </h3>
+
+<div class="users-list">
+    <ul>
+        @for (user of users; track $index) {
+                <li>{{user.name}}</li>
+        }
+    </ul>
+</div>

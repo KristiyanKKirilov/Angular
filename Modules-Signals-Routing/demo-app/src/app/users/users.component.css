@@ -1,0 +1,11 @@
+.users-list{
+    padding: 1em 0;
+    display: block;
+    text-align: center;
+    justify-content: center;
+}
+
+h3{
+    padding-top: 3em;
+    text-align: center;
+}
