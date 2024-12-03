@@ -9,3 +9,8 @@ h3{
     padding-top: 3em;
     text-align: center;
 }
+
+li:hover{
+    background-color: lightblue;
+    cursor: pointer;
+}

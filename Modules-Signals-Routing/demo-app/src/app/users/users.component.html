@@ -3,7 +3,9 @@
 <div class="users-list">
     <ul>
         @for (user of users; track $index) {
-                <li>{{user.name}}</li>
+                <li [routerLink]="['/user', '/detail',  user.id]">
+                    {{user.name}}
+                </li>
         }
     </ul>
 </div>
