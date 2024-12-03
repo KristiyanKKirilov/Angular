@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from './users.service';
 import { User } from '../types/User';
 import { Router, RouterLink } from '@angular/router';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 @Component({
   selector: 'app-users',
   standalone: true,
   imports: [
-    RouterLink
+    RouterLink,
   ],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'

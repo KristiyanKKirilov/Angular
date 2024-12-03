@@ -5,10 +5,15 @@ import { UserDetailsComponent } from './users/user-details/user-details.componen
 import { ErrorPageComponent } from './error-page/error-page.component';
 
 export const routes: Routes = [
-    {path: '', redirectTo: '/home', pathMatch: 'full'},
-    {path: 'home', component: HomeComponent},
-    {path: 'users', component: UsersComponent},
-    {path: 'users/details/:id', component: UserDetailsComponent}, 
-    {path: '**', component: ErrorPageComponent},
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: 'home', component: HomeComponent },
+    {
+        path: 'users',
+        children: [
+        { path: '', component: UsersComponent },
+        { path: 'details/:id', component: UserDetailsComponent }
+        ]
+    },
+    // {path: 'users/details/:id', component: UserDetailsComponent}, 
+    { path: '**', component: ErrorPageComponent },
 ];
- 
