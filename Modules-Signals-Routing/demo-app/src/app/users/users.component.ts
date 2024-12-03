@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from './users.service';
 import { User } from '../types/User';
-import { Router, RouterLink } from '@angular/router';
-import { UserDetailsComponent } from './user-details/user-details.component';
+import { Router, RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -32,7 +31,9 @@ export class UsersComponent implements OnInit{
   }
 
   loadUser(userId: number | string): void{
-      this.router.navigate(['/users', 'details', userId]);
+      this.router.navigate(['/users', 'details', userId],
+        // {queryParams: {search: 'Pesho'}}
+      );
   }
   
 }

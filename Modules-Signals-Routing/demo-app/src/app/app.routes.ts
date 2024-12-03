@@ -14,6 +14,5 @@ export const routes: Routes = [
         { path: 'details/:id', component: UserDetailsComponent }
         ]
     },
-    // {path: 'users/details/:id', component: UserDetailsComponent}, 
     { path: '**', component: ErrorPageComponent },
 ];
