@@ -11,6 +11,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './user-details.component.css'
 })
 export class UserDetailsComponent implements OnInit {
+  user: User | null = null;
+
   constructor(
     private userService: UsersService,
     private activatedRoute: ActivatedRoute,
@@ -22,7 +24,7 @@ export class UserDetailsComponent implements OnInit {
     this.userService
       .getSingleUser(userId)
       .subscribe((user) => {
-        console.log(user);
+        this.user = user;
       })
   }
 
