@@ -4,6 +4,7 @@ import { UsersComponent } from './users/users.component';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { AuthGuard } from './users/users.guard';
+import { UserDetailsResolver } from './users/user-details/user-details.resolver';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -13,8 +14,10 @@ export const routes: Routes = [
         children: [
             { path: '', component: UsersComponent },
             {
-                path: 'details/:id', component: UserDetailsComponent,
-                canActivate: [AuthGuard]
+                path: 'details/:id', 
+                component: UserDetailsComponent,
+                canActivate: [AuthGuard],
+                resolve: {user: UserDetailsResolver},
             },
         ]
     },

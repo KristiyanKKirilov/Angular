@@ -20,19 +20,26 @@ export class UserDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const userId = this.route.snapshot.params['id'];
+    //Service way
 
-    this.userService
-      .getSingleUser(userId)
-      .subscribe((user) => {
-        this.user = user;
-        this.isLoading = false;
-      });
+    // const userId = this.route.snapshot.params['id'];
 
-      //Subscribe for params in the url
-      // this.route.params.subscribe(x =>{
-      //   console.log(x);
-      // });
+    // this.userService
+    //   .getSingleUser(userId)
+    //   .subscribe((user) => {
+    //     this.user = user;
+    //     this.isLoading = false;
+    //   });
+
+    //Resolver way
+    this.user = (this.route.snapshot.data['user']);
+    this.isLoading = false;
+
+    //Subscribe for params in the url
+
+    // this.route.params.subscribe(x =>{
+    //   console.log(x);
+    // });
   }
 
 
