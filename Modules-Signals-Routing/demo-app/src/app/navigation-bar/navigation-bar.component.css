@@ -1,0 +1,18 @@
+.nav-wrapper{
+    background-color: lightblue;
+    display: flex;
+    width: 100%;
+    padding: 1em;
+    gap: 1em;
+}
+
+.nav-btn{
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 0.5em 0.8em;
+    cursor: pointer;
+}
+
+.nav-btn:hover{
+    background-color: rgb(100, 171, 195);
+}
