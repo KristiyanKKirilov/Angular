@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from './users.service';
 import { User } from '../types/User';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -14,7 +14,8 @@ import { RouterLink } from '@angular/router';
 })
 export class UsersComponent implements OnInit{
   users: User[] = [];
-  constructor(private userService: UsersService){}
+  
+  constructor(private userService: UsersService, private router: Router){}
 
   ngOnInit(): void {
     this.fetchUsers();
@@ -24,10 +25,13 @@ export class UsersComponent implements OnInit{
       this.userService
       .getUsers()
       .subscribe(users => {
-        console.log({users});
           this.users = users;
       })
 
+  }
+
+  loadUser(userId: number | string): void{
+      this.router.navigate(['/users', 'details', userId]);
   }
   
 }
