@@ -2,27 +2,32 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { Theme } from '../../types/theme';
 import { LoaderComponent } from '../../shared/loader/loader.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-themes-list',
   standalone: true,
-  imports: [LoaderComponent],
+  imports: 
+  [LoaderComponent,
+    RouterLink,
+  ],
   templateUrl: './themes-list.component.html',
   styleUrl: './themes-list.component.css'
 })
-export class ThemesListComponent implements OnInit{
+export class ThemesListComponent implements OnInit {
   themes: Theme[] = [];
   isLoading = true;
 
-  constructor(private apiService: ApiService){}
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.apiService
-    .getThemes(5)
-    .subscribe(themes => {
-      this.themes = themes;
-        this.isLoading = false;
-    });
+      .getThemes()
+      .subscribe((themes) => {
+        this.themes = themes;
+        this.isLoading = false; 
+        console.log({themes}); 
+      });
   }
 
 }

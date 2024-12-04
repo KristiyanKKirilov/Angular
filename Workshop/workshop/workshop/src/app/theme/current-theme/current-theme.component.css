@@ -24,7 +24,7 @@
     margin-top: 1em;
     background-color: #ff9d00d7;
     color: #234465;
-    text-shadow: 1px 1px rgb(0, 0, 0);
+    text-shadow: 1px 1px rgb(0, 0, 1);
 }
 
 .theme-title {
@@ -115,7 +115,7 @@
 
 .post-content p {
     padding-left: 1.5em;
-    color: white;
+    color: #000;
 }
 
 .userdetails div {
