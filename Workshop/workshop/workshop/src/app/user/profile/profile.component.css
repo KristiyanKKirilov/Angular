@@ -37,7 +37,6 @@
 }
 
 .flex p:first-child {
-    width: 35%;
     text-align: right;
     margin: 0.5em;
     font-weight: bold;
