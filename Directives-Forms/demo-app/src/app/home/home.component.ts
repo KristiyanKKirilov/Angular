@@ -11,5 +11,5 @@ import { HighlightDirective } from '../directives/highlight.directive';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-
+  
 }
