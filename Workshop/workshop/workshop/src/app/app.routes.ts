@@ -20,7 +20,7 @@ export const routes: Routes = [
     {
         path: 'themes', children: [
             {path: '', component: MainComponent},
-            {path: ':themeId', component: CurrentThemeComponent},
+            {path: ':themeId', component: CurrentThemeComponent, canActivate: [AuthGuard]},
         ]
     },
     { path: 'add-theme', component: AddThemeComponent, canActivate: [AuthGuard]},
