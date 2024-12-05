@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { PostsListComponent } from "../posts-list/posts-list.component";
 import { ThemesListComponent } from "../theme/themes-list/themes-list.component";
 import { UserService } from '../user/user.service';
-import { WelcomeMsgComponent } from '../shared/welcome-msg/welcome-msg.component';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-main',
@@ -10,7 +10,7 @@ import { WelcomeMsgComponent } from '../shared/welcome-msg/welcome-msg.component
   imports: [
     PostsListComponent, 
     ThemesListComponent,
-    WelcomeMsgComponent,
+    HomeComponent,
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
