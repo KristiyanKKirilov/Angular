@@ -5,3 +5,29 @@
 
 <div appMyRouterLink="/login">Login page</div>
 <div appMyRouterLink="/register">Register page</div>
+
+<hr/>
+<!-- 
+<p  [ngStyle]="{ width: widthInPercentage, backgroundColor: 'orange'}">Some text {{widthInPercentage}}%</p>
+<p>Some text</p> -->
+
+
+<div>Div 1</div>
+<div>Div 2</div>
+
+<ng-template [ngIf]="true">
+    <div *ngIf="true">
+        <div>Div 1</div>
+        <div>Div 2</div>
+    </div>
+</ng-template>
+
+<ul>
+    @for (item of [1,2,3,4]; track $index) {
+        <li>item</li>
+    }
+</ul>
+
+<ul>
+    <li *ngFor="let item of [1,2,3,4]">{{item}} - item</li>
+</ul>
