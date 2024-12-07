@@ -1,1 +1,30 @@
-<p>login works!</p>
+<!-- template driven form -->
+<div class="container">
+    <h3>Login form </h3>
+    <form #loginForm="ngForm" (ngSubmit)="formSubmitHandler()">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" ngModel #emailInput="ngModel" required email />
+        </div>
+
+        @if(emailInput.touched){        
+        <div>       
+        @if(emailInput.errors?.['email']){
+         <div style="color: red">Email is not valid</div>
+        }
+
+        @if(emailInput.errors?.['required']){
+            <div style="color: red">Email is required</div>
+        }
+        </div>
+        }
+         
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" ngModel #passwordInput="ngModel" required />
+        </div>
+        <button>Submit</button>
+    </form>
+
+
+</div>
