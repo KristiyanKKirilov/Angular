@@ -12,7 +12,7 @@
 <p>Some text</p> -->
 
 
-<div>Div 1</div>
+<!-- <div>Div 1</div>
 <div>Div 2</div>
 
 <ng-template [ngIf]="true">
@@ -30,4 +30,11 @@
 
 <ul>
     <li *ngFor="let item of [1,2,3,4]">{{item}} - item</li>
-</ul>
+</ul> -->
+<button (click)="toggleIsShown()">Toggle</button>
+<div *appMyStructural="isShown">Testing Custom Structural Directive</div> 
+
+<ng-template [appMyStructural]="isShown" let-testMe="myCustomValue">
+<div *appMyStructural="isShown">2# Testing Custom Structural Directive</div> 
+<div>let-testMe: {{testMe}}</div>
+</ng-template>
