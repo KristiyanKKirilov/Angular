@@ -1,26 +1,42 @@
 <div class="container">
-    <form class="login" action="" method="post">
-
+    <form class="login" #form="ngForm" (ngSubmit)="login(form)">
         <fieldset>
             <h2>Login Form</h2>
 
             <p class="field field-icon">
                 <label for="email"><span><i class="fas fa-envelope"></i></span></label>
                 <input 
-                class="input-error" 
+                [class]="
+                emailInput?.touched && (emailInput?.errors?.['required'] 
+                || emailInput?.errors?.['emailValidator']) 
+                ? 'input-error': ''"  
                 type="email" 
                 name="email" 
                 id="email" 
-                placeholder="john.doe@gmail.com"
-                #email>
+                placeholder="john.doe@gmail.com" 
+                ngModel
+                required
+                #emailInput="ngModel"
+                [appEmail]="domains"
+                >
             </p>
-            <p class="error">
-                Email is required!
-            </p>
-            <!-- <p class="error">
-                Email is not valid!
-            </p> -->
+            @if(emailInput.touched){
+            <div>
+                @if(emailInput .errors?.['required']){
+                <p class="error">
+                    Email is required!
+                </p>
+                }
 
+                @if(emailInput.errors?.['emailValidator']){
+                <p class="error">
+                    Email is not valid!
+                </p>
+                }
+            </div>
+
+
+            }
             <p class="field field-icon">
                 <label for="password"><span><i class="fas fa-lock"></i></span></label>
                 <input type="password" name="password" id="password" placeholder="******" #password>
@@ -32,7 +48,7 @@
                 Password must be at least 4 characters!
             </p> -->
 
-            <button (click)="login($event, email.value, password.value)">Login</button>
+            <button>Login</button>
 
             <p class="text-center">
                 Have an account?
