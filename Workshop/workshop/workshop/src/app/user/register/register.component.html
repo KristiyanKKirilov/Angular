@@ -19,6 +19,7 @@
                 placeholder="Johny"
                 formControlName="username">
             </p>
+
             @if(form.get('username')?.touched){
                 <div>
                     @if(form.get('username')?.errors?.['required']){
@@ -32,28 +33,44 @@
                             Username must be at least 5 characters
                         </p>
                     }
-
-
-                </div>
-                
+                </div>                
             }
            
 
             <!-- email -->
             <p class="field field-icon">
                 <label for="email"><span><i class="fas fa-envelope"></i></span></label>
-                <input type="email" 
+                <input 
+                [class]="form.get('email')?.touched 
+                && (form.get('email')?.errors?.['required']
+                || form.get('email')?.errors?.['emailValidator'])
+                ? 'input-error'
+                : ''"
+                type="email" 
                 name="email" 
                 id="email" 
                 placeholder="john.doe@gmail.com"
-                formControlName="email">
+                formControlName="email"
+                [appEmail]="domains">
             </p>
-            <!-- <p class="error">
-                Email is required!
-            </p>
-            <p class="error">
-                Email is not valid!
-            </p> -->
+
+            @if(form.get('email')?.touched){
+                <div>
+                    @if(form.get('email')?.errors?.['required']){
+                        <p class="error">
+                            Email is required!
+                        </p>
+                    }
+
+                    @if(form.get('email')?.errors?.['emailValidator']){
+                        <p class="error">
+                            Email is not valid!
+                        </p>
+                    }
+                </div>
+            }
+           
+            
 
             <!-- telephone -->
             <p class="field field-icon">

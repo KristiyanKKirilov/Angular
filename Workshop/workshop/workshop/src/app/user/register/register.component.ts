@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { DOMAINS } from '../../constants';
+import { EmailDirective } from '../../directives/email.directive';
 
 @Component({
   selector: 'app-register',
@@ -9,29 +11,31 @@ import { RouterLink } from '@angular/router';
     RouterLink,
     ReactiveFormsModule,
     FormsModule,
+    EmailDirective,
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
- form = new FormGroup({
-  username: new FormControl('', [
-    Validators.required,
-    Validators.minLength(5), 
-  ]),
-  email: new  FormControl('', [Validators.required]),
-  tel: new FormControl('', ),
-  //TODO put passwords in group
-  password: new FormControl('', [Validators.required]),
-  rePassword: new FormControl('', [Validators.required]),
- });
+  domains: string[] = DOMAINS;
+  form = new FormGroup({
+    username: new FormControl('', [
+      Validators.required,
+      Validators.minLength(5),
+    ]),
+    email: new FormControl('', [Validators.required]),
+    tel: new FormControl('',),
+    //TODO put passwords in group
+    password: new FormControl('', [Validators.required]),
+    rePassword: new FormControl('', [Validators.required]),
+  });
 
- register():void{
-   if(this.form.invalid){
-     return;
+  register(): void {
+    if (this.form.invalid) {
+      return;
     }
 
     console.log(this.form.value);
     this.form.reset();
- }
+  }
 }
