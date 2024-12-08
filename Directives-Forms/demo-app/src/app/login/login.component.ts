@@ -17,14 +17,12 @@ export class LoginComponent {
   maxCountNumber = 4;
 
   formSubmitHandler(): void {
-    console.log('From submitted');
-    console.log(this.form); 
-
     if(this.form?.invalid){
       console.log('Invalid form');
       return;
     }
 
-    console.log(this.form?.value);
+    this.form?.reset();
+
   }
 }

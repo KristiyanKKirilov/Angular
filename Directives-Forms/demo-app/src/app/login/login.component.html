@@ -28,8 +28,15 @@
             ngModel 
             #passwordInput="ngModel" 
             required
-            [appMaxCount]="maxCountNumber" />  
+            [appMaxCount]="maxCountNumber" 
+            minlength="2"/>  
         </div>
+         
+        @if(passwordInput.errors?.['minlength']){        
+            <div style="color: red">
+                Password is is shorter than 2 
+            </div>
+        }
 
         @if(passwordInput.errors?.['appMaxCount']){        
         <div style="color: red">
