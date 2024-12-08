@@ -21,8 +21,21 @@
          
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" ngModel #passwordInput="ngModel" required />
+            <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            ngModel 
+            #passwordInput="ngModel" 
+            required
+            [appMaxCount]="maxCountNumber" />  
         </div>
+
+        @if(passwordInput.errors?.['appMaxCount']){        
+        <div style="color: red">
+            Password is longer than {{maxCountNumber}} 
+        </div>
+        }
         <button>Submit</button>
     </form>
 
