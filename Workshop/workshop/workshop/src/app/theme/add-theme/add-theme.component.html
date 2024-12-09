@@ -3,7 +3,7 @@
         <div class="header-background">
             <span>New Theme</span>
         </div>
-        <form>
+        <form #form="ngForm" (ngSubmit)="addTheme(themeName.value, postText.value)">
             <div class="new-theme-title">
                 <label for="themeName">Title <span class="red">*</span></label>
                 <input 
@@ -39,17 +39,41 @@
             </div>
             <div class="new-theme-content">
                 <label for="postText">Post <span class="red">*</span></label>
-                <textarea type="text" name="postText" id="postText" rows="8" class="height" #postText></textarea>
-                <!-- <p class="error">
-                    The field with your post is required.
-                </p>
-                <p class="error">
-                    Post must be at least 10 characters long.
-                </p> -->
+                <textarea 
+                [class]="postText?.touched 
+                && (postText?.errors?.['required']
+                || postText?.errors?.['minlength'])
+                ? 'input-error'
+                : ''"
+                type="text" 
+                name="postText" 
+                id="postText" 
+                rows="8" 
+                class="height"
+                ngModel 
+                #postText="ngModel"
+                minlength="10"
+                required></textarea>
+                @if(postText?.touched){
+                    <div>
+                        @if(postText?.errors?.['required']){
+                            <p class="error">
+                                The field with your post is required.
+                            </p>
+                        }
+    
+                        @if(postText?.errors?.['minlength']){
+                            <p class="error">
+                                Post must be at least 10 characters long.
+                            </p>
+                        }
+                    </div>
+                }                
             </div>
             <div class="new-theme-buttons">
-                <button class="cancel">Cancel</button>
-                <button class="public" (click)="addTheme($event, themeName.value, postText.value)">Post</button>
+                <button class="cancel" routerLink="/themes">Cancel</button>
+                <button class="public" 
+                [style]="{backgroundColor: form.invalid ? 'grey' : '#ff9f00'}">Post</button>
             </div>
 
         </form>

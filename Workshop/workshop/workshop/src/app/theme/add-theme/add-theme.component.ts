@@ -1,21 +1,25 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-add-theme',
   standalone: true,
-  imports: [FormsModule],
+  imports: [
+    FormsModule,
+    RouterLink
+  ],
   templateUrl: './add-theme.component.html',
   styleUrl: './add-theme.component.css'
 })
 export class AddThemeComponent {
-  constructor(private apiService: ApiService){}
+  constructor(private apiService: ApiService) { }
 
-  addTheme(e: Event, themeName: string, postText: string): void{
-      this.apiService.createTheme(themeName, postText)
+  addTheme(themeName: string, postText: string): void {
+    this.apiService.createTheme(themeName, postText)
       .subscribe((data) => {
-        console.log(data);  
+        console.log(data);
       })
   }
 }
