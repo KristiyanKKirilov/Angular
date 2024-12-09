@@ -8,9 +8,8 @@
             <p class="field field-icon">
                 <label for="username"><span><i class="fas fa-user"></i></span></label>
                 <input 
-                [class]="form.get('username')?.touched 
-                && (form.get('username')?.errors?.['required']
-                || form.get('username')?.errors?.['minlength'])
+                [class]="isFieldTextMissing('username')
+                || isUsernameNotValid
                 ? 'input-error'
                 : '' " 
                 type="text" 
@@ -41,17 +40,15 @@
             <p class="field field-icon">
                 <label for="email"><span><i class="fas fa-envelope"></i></span></label>
                 <input 
-                [class]="form.get('email')?.touched 
-                && (form.get('email')?.errors?.['required']
-                || form.get('email')?.errors?.['emailValidator'])
+                [class]="isFieldTextMissing('email')
+                || isEmailNotValid
                 ? 'input-error'
                 : ''"
                 type="email" 
                 name="email" 
                 id="email" 
                 placeholder="john.doe@gmail.com"
-                formControlName="email"
-                [appEmail]="domains">
+                formControlName="email">
             </p>
 
             @if(form.get('email')?.touched){
@@ -87,13 +84,16 @@
                 maxlength="9">
             </p>
 
+            <div formGroupName="passGroup">
+
+           
             <!-- password -->
             <p class="field field-icon">
                 <label for="password"><span><i class="fas fa-lock"></i></span></label>
                 <input 
-                [class]="form.get('password')?.touched
-                && (form.get('password')?.errors?.['required']
-                || form.get('password')?.errors?.['passwordValidator'])
+                [class]="(passGroup?.get('password')?.touched 
+                && passGroup?.get('password')?.errors?.['required']) 
+                || isPasswordNotValid
                 ? 'input-error'
                 : ''"
                 #passwordInput
@@ -102,20 +102,19 @@
                 id="password" 
                 placeholder="******"
                 formControlName="password"
-                required
-                appPassword                
+                required                               
                 >
             </p>
 
-            @if(form.get('password')?.touched){
+            @if(passGroup?.get('password')?.touched){
                 <div>
-                    @if(form.get('password')?.errors?.['required']){
+                    @if(passGroup?.get('password')?.errors?.['required']){
                         <p class="error">
                             Password is required!
                         </p>
                     }
 
-                    @if(form.get('password')?.errors?.['passwordValidator']){
+                    @if(passGroup?.get('password')?.errors?.['passwordValidator']){
                         <p class="error">
                             Password must be at least 5 chars!
                         </p>
@@ -127,9 +126,9 @@
             <p class="field field-icon">
                 <label for="rePassword"><span><i class="fas fa-lock"></i></span></label>
                 <input 
-                [class]="form.get('rePassword')?.touched
-                && (form.get('rePassword')?.errors?.['required']
-                || form.get('rePassword')?.errors?.['rePasswordValidator'])
+                [class]="(passGroup?.get('rePassword')?.touched 
+                && passGroup?.get('rePassword')?.errors?.['required']) 
+                || isRePasswordNotValid
                 ? 'input-error'
                 : ''"
                 type="password" 
@@ -137,26 +136,26 @@
                 id="rePassword" 
                 placeholder="******"
                 formControlName="rePassword"
-                [appRePassword]="passwordInput.value"
+                required
                 >
             </p>
 
-            @if(form.get('rePassword')?.touched){
+            @if(passGroup?.get('rePassword')?.touched){
                 <div>
-                    @if(form.get('rePassword')?.errors?.['required']){
+                    @if(passGroup?.get('rePassword')?.errors?.['required']){
                         <p class="error">
                             Repeat Password is required!
                         </p>
                     }
 
-                    @if(form.get('rePassword')?.errors?.['rePasswordValidator']){
+                    @if(passGroup?.errors?.['matchPasswordsValidator']){
                         <p class="error">
                             Repeat Password does not match password!!
                         </p>
                     }
                 </div>
             }
-
+        </div>
             <button 
             [disabled]="form.invalid" 
             [style]="{backgroundColor: form.invalid ? 'grey' : '#234465' }">

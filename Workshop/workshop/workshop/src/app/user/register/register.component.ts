@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { DOMAINS } from '../../constants';
-import { EmailDirective } from '../../directives/email.directive';
-import { PasswordDirective } from '../../directives/password.directive';
-import { RePasswordDirective } from '../../directives/rePassword.directive';
+import { passwordValidator } from '../../utils/password.validator';
+import { emailValidator } from '../../utils/email.validator';
+import { matchPasswordsValidator } from '../../utils/match-passwords.validator';
 
 @Component({
   selector: 'app-register',
@@ -12,10 +12,7 @@ import { RePasswordDirective } from '../../directives/rePassword.directive';
   imports: [
     RouterLink,
     ReactiveFormsModule,
-    FormsModule,
-    EmailDirective,
-    PasswordDirective,
-    RePasswordDirective,
+    FormsModule
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
@@ -27,13 +24,61 @@ export class RegisterComponent {
       Validators.required,
       Validators.minLength(5),
     ]),
-    email: new FormControl('', [Validators.required]),
+    email: new FormControl('', [
+      Validators.required,
+      emailValidator(this.domains)  
+    ]),
     tel: new FormControl('',),
     //TODO put passwords in group
-    password: new FormControl('', [
-      Validators.required]),
-    rePassword: new FormControl('', [Validators.required]),
+    passGroup:  new FormGroup({
+      password: new FormControl('', [
+        Validators.required,
+        passwordValidator()]),
+      rePassword: new FormControl('', [Validators.required]),
+    }, {
+      validators: [matchPasswordsValidator('password', 'rePassword')],
+    }),    
   });
+
+  isFieldTextMissing(controlName: string){
+    return (
+      this.form.get(controlName)?.touched && 
+      this.form.get(controlName)?.errors?.['required']
+    );
+  }
+
+  get isUsernameNotValid(){
+    return (
+      this.form.get('username')?.touched &&
+      this.form.get('username')?.errors?.['minlength']
+    );
+  }
+
+  get isEmailNotValid(){
+    return (
+      this.form.get('email')?.touched &&
+      this.form.get('email')?.errors?.['emailValidator']
+    );
+  }
+
+  get isPasswordNotValid(){
+    return (
+      this.form.get('passGroup')?.get('password')?.touched &&
+      this.form.get('passGroup')?.get('password')?.errors?.['passwordValidator']
+    );
+  }
+
+  get isRePasswordNotValid(){
+    return (
+      this.form.get('passGroup')?.get('rePassword')?.touched &&
+      this.form.get('passGroup')?.errors?.['matchPasswordsValidator']
+    );
+  }
+
+  get passGroup(){
+    return this.form.get('passGroup');
+  }
+
 
   register(): void {
     if (this.form.invalid) {
