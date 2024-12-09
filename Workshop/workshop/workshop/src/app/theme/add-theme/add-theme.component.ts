@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../../api.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -16,10 +16,17 @@ import { RouterLink } from '@angular/router';
 export class AddThemeComponent {
   constructor(private apiService: ApiService) { }
 
-  addTheme(themeName: string, postText: string): void {
-    this.apiService.createTheme(themeName, postText)
-      .subscribe((data) => {
-        console.log(data);
-      })
-  }
+  addTheme(form: NgForm): void {
+
+    console.log(form.invalid);
+    if(form.invalid){
+      return;
+    }
+
+    console.log(form.value); 
+    //   this.apiService.cre ateTheme(themeName, postText)
+    //     .subscribe((data) => {
+      //       console.log(data);
+      //     })
+    }
 }
