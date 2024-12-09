@@ -96,6 +96,7 @@
                 || form.get('password')?.errors?.['passwordValidator'])
                 ? 'input-error'
                 : ''"
+                #passwordInput
                 type="password" 
                 name="password" 
                 id="password" 
@@ -126,13 +127,35 @@
             <p class="field field-icon">
                 <label for="rePassword"><span><i class="fas fa-lock"></i></span></label>
                 <input 
+                [class]="form.get('rePassword')?.touched
+                && (form.get('rePassword')?.errors?.['required']
+                || form.get('rePassword')?.errors?.['rePasswordValidator'])
+                ? 'input-error'
+                : ''"
                 type="password" 
                 name="rePassword" 
                 id="rePassword" 
                 placeholder="******"
-                formControlName="rePassword">
+                formControlName="rePassword"
+                [appRePassword]="passwordInput.value"
+                >
             </p>
-            <!-- <p class="error">Repeat Password does not match password!</p> -->
+
+            @if(form.get('rePassword')?.touched){
+                <div>
+                    @if(form.get('rePassword')?.errors?.['required']){
+                        <p class="error">
+                            Repeat Password is required!
+                        </p>
+                    }
+
+                    @if(form.get('rePassword')?.errors?.['rePasswordValidator']){
+                        <p class="error">
+                            Repeat Password does not match password!!
+                        </p>
+                    }
+                </div>
+            }
 
             <button 
             [disabled]="form.invalid" 

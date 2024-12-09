@@ -4,7 +4,7 @@ import { RouterLink } from '@angular/router';
 import { DOMAINS } from '../../constants';
 import { EmailDirective } from '../../directives/email.directive';
 import { PasswordDirective } from '../../directives/password.directive';
-import { passwordValidator } from '../../utils/password.validator';
+import { RePasswordDirective } from '../../directives/rePassword.directive';
 
 @Component({
   selector: 'app-register',
@@ -15,6 +15,7 @@ import { passwordValidator } from '../../utils/password.validator';
     FormsModule,
     EmailDirective,
     PasswordDirective,
+    RePasswordDirective,
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
