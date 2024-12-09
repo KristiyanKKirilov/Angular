@@ -83,25 +83,44 @@
                 name="tel" 
                 id="tel" 
                 placeholder="885 888 888"
-                formControlName="tel">
+                formControlName="tel"
+                maxlength="9">
             </p>
 
             <!-- password -->
             <p class="field field-icon">
                 <label for="password"><span><i class="fas fa-lock"></i></span></label>
                 <input 
+                [class]="form.get('password')?.touched
+                && (form.get('password')?.errors?.['required']
+                || form.get('password')?.errors?.['passwordValidator'])
+                ? 'input-error'
+                : ''"
                 type="password" 
                 name="password" 
                 id="password" 
                 placeholder="******"
-                formControlName="password">
+                formControlName="password"
+                required
+                appPassword                
+                >
             </p>
-            <!-- <p class="error">
-                Password is required!
-            </p>
-            <p class="error">
-                Password must be at least 4 characters!
-            </p> -->
+
+            @if(form.get('password')?.touched){
+                <div>
+                    @if(form.get('password')?.errors?.['required']){
+                        <p class="error">
+                            Password is required!
+                        </p>
+                    }
+
+                    @if(form.get('password')?.errors?.['passwordValidator']){
+                        <p class="error">
+                            Password must be at least 5 chars!
+                        </p>
+                    }
+                </div>
+            }
 
             <!-- rePassword -->
             <p class="field field-icon">

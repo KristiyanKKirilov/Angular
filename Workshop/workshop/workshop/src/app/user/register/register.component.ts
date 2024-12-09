@@ -3,6 +3,8 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { RouterLink } from '@angular/router';
 import { DOMAINS } from '../../constants';
 import { EmailDirective } from '../../directives/email.directive';
+import { PasswordDirective } from '../../directives/password.directive';
+import { passwordValidator } from '../../utils/password.validator';
 
 @Component({
   selector: 'app-register',
@@ -12,6 +14,7 @@ import { EmailDirective } from '../../directives/email.directive';
     ReactiveFormsModule,
     FormsModule,
     EmailDirective,
+    PasswordDirective,
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
@@ -26,7 +29,8 @@ export class RegisterComponent {
     email: new FormControl('', [Validators.required]),
     tel: new FormControl('',),
     //TODO put passwords in group
-    password: new FormControl('', [Validators.required]),
+    password: new FormControl('', [
+      Validators.required]),
     rePassword: new FormControl('', [Validators.required]),
   });
 
