@@ -2,6 +2,7 @@ import { CommonModule, LowerCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { interval, map } from 'rxjs';
+import { ReducePipe } from './reduce.pipe';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,7 @@ import { interval, map } from 'rxjs';
   imports: [
     RouterOutlet,
     CommonModule,
+    ReducePipe,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -22,6 +24,10 @@ export class AppComponent {
     age: 22,
     grades: [5, 4, 2, 3, 4]
   };
+
+  sum(acc: number, cur: number): number {
+    return acc + cur;
+  }
 
   addProperty() {
     (this.user as any).test = 'test123';

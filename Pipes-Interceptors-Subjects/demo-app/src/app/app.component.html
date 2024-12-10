@@ -3,3 +3,6 @@
 <button (click)="addProperty()">Add</button>   
 <div>Promise: {{p | async}}</div>
 <div>Clock: {{time$ | async | date : 'hh:mm:ss'}}</div>
+
+<div>Reduce FN: {{user.grades | reduce : sum : 0}}</div>
+<hr> 
