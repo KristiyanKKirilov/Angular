@@ -7,7 +7,7 @@ import { BehaviorSubject, tap } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-private user$$ = new BehaviorSubject<UserForAuth | undefined>(undefined);
+private user$$ = new BehaviorSubject<UserForAuth | null>(null);
 private user$ = this.user$$.asObservable(); 
 
   USER_KEY = '[user]';
@@ -18,13 +18,9 @@ private user$ = this.user$$.asObservable();
   }
 
   constructor(private http: HttpClient) { 
-    try {
-      const lsUser = localStorage.getItem(this.USER_KEY) || '';
-      this.user = JSON.parse(lsUser);
-    } catch (error) {
-      this.user = null;
-      console.log('Invalid parsing object');
-    }
+    this.user$.subscribe((user) => {
+      this.user = user;
+    });
   }
 
   login(email: string, password: string){    
@@ -46,8 +42,8 @@ private user$ = this.user$$.asObservable();
   }
 
   logout(){
-    this.user = null;
-    localStorage.removeItem(this.USER_KEY);
+    return this.http.post('/api/logout', {})
+    .pipe(tap((user) => this.user$$.next(null))) ;
   } 
 
   getProfile(){
