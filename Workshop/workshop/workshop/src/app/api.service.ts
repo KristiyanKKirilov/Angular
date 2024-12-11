@@ -13,36 +13,24 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getPosts(limit?: number): Observable<Post[]>{
-    const {apiUrl} = environment;
-    let url = `${apiUrl}/posts`;
+    let url = '/api/posts';
     
-    if(limit){
-      url += `?limit=${limit}`; 
-    }
-
     return this.http.get<Post[]>(url)
   }
 
   getThemes(limit?: number):  Observable<Theme[]>{
-    const {apiUrl} = environment;
-    let url = `${apiUrl}/themes`;
+    let url = '/api/themes';
 
-    if(limit){
-      url += `?limit=${limit}`; 
-    }
-    
     return this.http.get<Theme[]>(url);
   }
 
   getSingleTheme(id: string): Observable<Theme>{
-    const {apiUrl} = environment;
-    return this.http.get<Theme>(`${apiUrl}/themes/${id}`);
+    return this.http.get<Theme>(`/api/themes/${id}`);
   }
 
   createTheme(themeName: string, postText: string): Observable<Theme>{
-    const {apiUrl} = environment;
     const payload = {themeName, postText};
-    return this.http.post<Theme>(`${apiUrl}/themes`, payload);
+    return this.http.post<Theme>('/api/themes', payload);
   }
 
 
