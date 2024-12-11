@@ -29,6 +29,14 @@ export class AppComponent{
     grades: [5, 4, 2, 3, 4]
   };
 
+  get isLoading$(){
+   return this.userService.isLoading$;
+  }  
+
+  get user$(){
+    return this.userService.user$;
+  }
+
   constructor(private userService: UserService){}
   
   sum(acc: number, cur: number): number {

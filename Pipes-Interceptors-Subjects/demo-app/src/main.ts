@@ -1,7 +1,7 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
-import { BehaviorSubject, map, Observable, ReplaySubject, Subject } from 'rxjs';
+import { AsyncSubject, BehaviorSubject, map, Observable, ReplaySubject, Subject } from 'rxjs';
 
 bootstrapApplication(AppComponent, appConfig)
   .catch((err) => console.error(err));
@@ -84,19 +84,29 @@ const p = new Promise((resolve, reject) => {
 //  }, 2000);
 
 
-const rSubject$$ = new ReplaySubject(5);
-rSubject$$.next(100);
-rSubject$$.subscribe((data) => console.log('Sub 1:', data));  
+// const rSubject$$ = new ReplaySubject(5);
+// rSubject$$.next(100);
+// rSubject$$.subscribe((data) => console.log('Sub 1:', data));  
 
-for (let i = 1; i <= 30; i++) {
-  rSubject$$.next(i);  
-}
+// for (let i = 1; i <= 30; i++) {
+//   rSubject$$.next(i);  
+// }
 
-console.log('---');
-rSubject$$.subscribe(data => console.log('Sub 2', data));  
+// console.log('---');
+// rSubject$$.subscribe(data => console.log('Sub 2', data));  
 
- for (let i = 31; i <= 40; i++) {
-  rSubject$$.next(i);  
- }
-console.log('---');
-rSubject$$.subscribe(data => console.log('Sub 3', data));  
+//  for (let i = 31; i <= 40; i++) {
+//   rSubject$$.next(i);  
+//  }
+// console.log('---');
+// rSubject$$.subscribe(data => console.log('Sub 3', data));  
+
+ const asyncSubject$$ = new AsyncSubject();
+ asyncSubject$$.next(100);
+ asyncSubject$$.next(200);
+ asyncSubject$$.next(300);
+
+ asyncSubject$$.subscribe((data) => console.log('Sub 1:', data));
+ asyncSubject$$.next(5);
+ asyncSubject$$.subscribe((data) => console.log('Sub 2:', data));
+asyncSubject$$.complete();
