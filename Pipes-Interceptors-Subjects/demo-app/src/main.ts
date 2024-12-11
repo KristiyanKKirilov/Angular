@@ -1,7 +1,7 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
-import { BehaviorSubject, map, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, map, Observable, ReplaySubject, Subject } from 'rxjs';
 
 bootstrapApplication(AppComponent, appConfig)
   .catch((err) => console.error(err));
@@ -64,21 +64,39 @@ const p = new Promise((resolve, reject) => {
 //   subject$$.next(400); 
 // }, 2000);
 
- const bSubject$$ = new BehaviorSubject(100);
- bSubject$$.subscribe(data => console.log('Data 1: ', data)); 
+//  const bSubject$$ = new BehaviorSubject(100);
+//  bSubject$$.subscribe(data => console.log('Data 1: ', data)); 
 
- setTimeout(() => {
-  bSubject$$.next(200);
-  bSubject$$.next(300);
-  bSubject$$.next(400);
-  bSubject$$.next(500);
+//  setTimeout(() => {
+//   bSubject$$.next(200);
+//   bSubject$$.next(300);
+//   bSubject$$.next(400);
+//   bSubject$$.next(500);
 
-  bSubject$$.subscribe((data) => console.log('Data 2', data));
- }, 2000);
+//   bSubject$$.subscribe((data) => console.log('Data 2', data));
+//  }, 2000);
 
 
- setTimeout(() => {
-  bSubject$$.next(900);
+//  setTimeout(() => {
+//   bSubject$$.next(900);
 
-  bSubject$$.subscribe(data => console.log('Data 3', data)); 
- }, 2000);
+//   bSubject$$.subscribe(data => console.log('Data 3', data)); 
+//  }, 2000);
+
+
+const rSubject$$ = new ReplaySubject(5);
+rSubject$$.next(100);
+rSubject$$.subscribe((data) => console.log('Sub 1:', data));  
+
+for (let i = 1; i <= 30; i++) {
+  rSubject$$.next(i);  
+}
+
+console.log('---');
+rSubject$$.subscribe(data => console.log('Sub 2', data));  
+
+ for (let i = 31; i <= 40; i++) {
+  rSubject$$.next(i);  
+ }
+console.log('---');
+rSubject$$.subscribe(data => console.log('Sub 3', data));  
