@@ -1,6 +1,6 @@
 import { CommonModule, LowerCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { interval, map } from 'rxjs';
 import { ReducePipe } from './reduce.pipe';
 import { UserService } from './user.service';
@@ -13,6 +13,7 @@ import { httpInterceptor } from './http.interceptor';
     RouterOutlet,
     CommonModule,
     ReducePipe,
+    RouterLink,
   ],
   providers: [],
   templateUrl: './app.component.html',
