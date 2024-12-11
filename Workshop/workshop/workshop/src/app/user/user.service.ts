@@ -29,12 +29,29 @@ private user$ = this.user$$.asObservable();
 
   login(email: string, password: string){    
     return this.http
-    .post<UserForAuth>('api/login', {email, password})
+    .post<UserForAuth>('/api/login', {email, password})
+    .pipe((tap((user) => this.user$$.next(user)))); 
+  }
+
+  register(
+    username: string, 
+    email: string, 
+    tel: string,
+    password: string,
+    rePassword: string,
+  ){    
+    return this.http
+    .post<UserForAuth>('/api/register', {username, email, tel, password, rePassword})
     .pipe((tap((user) => this.user$$.next(user)))); 
   }
 
   logout(){
     this.user = null;
     localStorage.removeItem(this.USER_KEY);
+  } 
+
+  getProfile(){
+    return this.http.get<UserForAuth>('/api/users/profile')
+    .pipe(tap((user) => this.user$$.next(user)));
   }
 }

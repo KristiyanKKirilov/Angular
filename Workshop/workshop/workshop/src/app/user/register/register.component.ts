@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { DOMAINS } from '../../constants';
 import { passwordValidator } from '../../utils/password.validator';
 import { emailValidator } from '../../utils/email.validator';
 import { matchPasswordsValidator } from '../../utils/match-passwords.validator';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-register',
@@ -40,6 +41,8 @@ export class RegisterComponent {
     }),    
   });
 
+  constructor(private userService: UserService, private router: Router){}
+   
   isFieldTextMissing(controlName: string){
     return (
       this.form.get(controlName)?.touched && 
@@ -85,7 +88,16 @@ export class RegisterComponent {
       return;
     }
 
-    console.log(this.form.value);
-    this.form.reset();
+    const {
+      username, 
+      email, 
+      tel,
+      passGroup: {password, rePassword} = {},
+    } = this.form.value;
+
+    this.userService.register(username!, email!, tel!, password!, rePassword!)
+    .subscribe(() => {
+      this.router.navigate(['/themes']); 
+    });
   }
 }
