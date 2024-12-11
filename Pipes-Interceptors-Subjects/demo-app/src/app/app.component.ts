@@ -15,7 +15,7 @@ import { httpInterceptor } from './http.interceptor';
     ReducePipe,
     RouterLink,
   ],
-  providers: [],
+  providers: [], 
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

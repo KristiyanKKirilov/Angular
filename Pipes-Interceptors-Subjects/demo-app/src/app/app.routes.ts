@@ -5,7 +5,7 @@ export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
     {
-        path: 'lazy', loadChildren: () =>
+        path: 'lazy', loadComponent: () =>
             import('./lazy/lazy.component')
                 .then((c) => c.LazyComponent)
     },
